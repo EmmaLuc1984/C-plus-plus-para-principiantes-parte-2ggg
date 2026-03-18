@@ -1,4 +1,4 @@
-#Operadores Aritmeticos
+# Operadores Aritméticos
 
 Recordemos que las **expresiones** son **instrucciones** que están cosntituidas por constantes, variables y operadores. Si inicializamos: 
 
@@ -16,15 +16,16 @@ entonces las siguientes son expresiones válidas:
 peso*numero_de_piezas; 
 ```
 
-Los operadores permitidos en una expresión dependen de los tipos de datos de las constantes y variables en la expresión. Ahora, los operadores aritméticos son: 
+Los operadores permitidos en una expresión dependen de los tipos de datos de las constantes y variables en la expresión.
+Los operadores aritméticos son: 
 
-`+` Signo positivo unario
-`-`Signo negativo unario
-`+` Suma
-`-` Resta
-`*` Multiplicación
-`/` División
-`%` Módulo (o tambien conocida como residuo)
+- `+` Signo positivo unario
+- `-`Signo negativo unario
+- `+` Suma
+- `-` Resta
+- `*` Multiplicación
+- `/` División
+- `%` Módulo (o tambien conocida como residuo)
 
 Los dos primeros de esta lista son **operadores unarios**, pues toman solo un operando. Funcionan de la siguiente manera: 
 
@@ -36,7 +37,9 @@ int l{+k};
  ```
 En el caso de `+`, solo sirve para preservar el signo (ciertamente es dificil encontrar casos donde su uso tenga sentido). 
 
-Los cinco restantes son **operadores binarios**, pues toman dos operandos. La suma, resta y multiplicación funcionan de la maneraque uno se espera: 
+Los cinco restantes son **operadores binarios**, pues toman dos operandos.
+
+ La suma, resta y multiplicación funcionan de la manera que uno se espera: 
 
  ``` c++
 
@@ -111,7 +114,22 @@ int main() {
     std::cout << y << std::endl;
 }
 
-Salida típica:
 ```
+el compilador no te dirá nada, pero el resultado de la operación puede ser sorprendente (¿que es?). En cualquier caso, evita por favor dividir entre cero. 
 
+Por último tenemos a la operación de módulo (o residuo). Esta operación solo se realiza con datos de tipo entero (nada de flotantes). Funciona de la siguiente manera: 
 
+```c++
+7 % 3   // resultado: 1
+```
+Esto ocurre porque 7 = 3 * 2 + 1
+
+Asi, si tenemos 
+```c++
+int i, j, k;
+
+i = 13;
+j = 5;
+k = i % j;
+```
+el valor de k es 3. 

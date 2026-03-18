@@ -1,39 +1,36 @@
 
-#Sentencias y Expresiones. 
+# Introducción 
 
-En C++ las unidades más básicas de un programa son las sentencias. Una sentencia es una **instrucción** que indica al programa que realice una acción específica, como **declarar una variable**, **asignar un valor**, **evaluar una expresión** o **controlar el flujo de ejecución**. En general, las sentencias representan los pasos que el programa ejecuta uno tras otro, y muchas de ellas terminan con un punto y coma (;).
+En la sección anterior vimos algunos tipos de datos. Quizás aún te preguntes por qué existen tipos de datos muy parecidos entre si, pero que sin embargo son distintos: la clave está en la cantidad de memoria que usan y en cómo esa memoria afecta el rango de valores que pueden almacenar y el rendimiento. Un tipo más "grande" puede representar números más grandes o mayor precisión (por ejemplo `double` frente a `float`), mientras que un tipo más "pequeño" ahorra memoria y puede ser más rápido al momento de compilar el programa. 
+La siguiente tabla resume estos aspectos:
 
-De entre todo el conjunto de instrucciones que puedes escribir en C++, las expresiones son sin duda las piezas mas importantes: a grandes rasgos, una expresión es cualquier construcción del lenguaje que se evalúa para producir un valor. De lo que hemos visto hasta ahora, la asignación de valores a una variable es un buen ejemplo de lo que es una expresión. A lo largo del curso veremos que hay muchisimas mas cosas que producen algun valor. 
-
-Pero entonces, ¿cómo es que las expresiones producen valores? Bueno, aquí es donde entran en juego los **operadores**. Un **operador** es un símbolo del lenguaje que indica una operación. Esta operación se realiza sobre los operandos, los cuales son valores concretos (constantes), nombres de variables o incluso otras expresiones; el operador toma esos operandos, aplica una regla (aritmética, lógica, de acceso, etc.) y produce un nuevo valor.
-
-
-
-
-
-
-
-
-En el capítulo anterior aprendimos a cómo declarar variables, constantes y algunos tipos de datos básicos. En esta sección comenzaremos a conectar esos conceptos con dos de las unidades más fundamentales en un programa en C++: las **expresiones** y las **sentencias**.
-
-De manera resumida, vimos que las variables son recipientes donde se almacenan valores, mientras que los tipos de datos determinan qué clase de valores pueden guardarse en ellas y qué operaciones son válidas. A partir de esto surgen las **expresiones**, que son combinaciones de variables, constantes y operadores utilizadas para calcular valores o provocar efectos en el programa. Por su parte, las sentencias son las instrucciones completas que le indican al **compilador** qué acción debe ejecutarse: declarar una variable, realizar una asignación, tomar una decisión, repetir un bloque de código, devolver un valor, entre otras.
-
-## Expresiones 
-Una expresión es cualquier construcción del lenguaje que se evalúa para producir un valor (y quiza algunos efectos secundarios jeje). Ejemplos sencillos son digamos, una constante (42), el nombre de una variable (x) o una operación aritmetica combinada (a + b * func(c)). Las expresiones sirven para calcular valores, evaluar condiciones o generar resultados que otras partes del programa consumen (por ejemplo, como veremos mas adelane en el curso, el valor dentro del return o la condición en un **if**). Dado que las expresiones operan sobre variables y constantes, los tipos de datos influyen directamente en el resultado y el comportamiento: sumar enteros no es lo mismo que sumar flotantes, y las conversiones de tipo pueden cambiar el resultado. 
+| Nombre               | Descripción                                   | Tamaño* | Rango de valores* |
+|---------------------:|:----------------------------------------------|:-------:|:------------------:|
+| `char`               | Carácter o entero pequeño                      | 1 byte  | con signo: -128 a 127<br>sin signo: 0 a 255 |
+| `short int` (o simplemente `long`)| Entero pequeño                             | 2 bytes | con signo: -32768 a 32767<br>sin signo: 0 a 65535 |
+| `int`                | Entero                                         | 4 bytes | con signo: -2147483648 a 2147483647<br>sin signo: 0 a 4294967295 |
+| `long int ` (o simplemente `long`)  | Entero grande                         | 8 bytes | con signo: -2147483648 a 2147483647<br>sin signo: 0 a 4294967295 |
+| `bool`               | Valor booleano. Puede tomar dos valores: true o false | 1 byte  | `true` o `false` |
+| `float`              | Número de punto flotante                       | 4 bytes | ~ ±3.4e±38 (≈ 7 dígitos de precisión) |
+| `double`             | Punto flotante de doble precisión              | 8 bytes | ~ ±1.7e±308 (≈ 15 dígitos de precisión) |
+| `long double`        | Long de punto flotante de doble precisión      | 8 bytes | ~ ±1.7e±308 (≈ 15 dígitos — depende del compilador/ABI) |
 
 
+## Sentencias, Expresiones y Operadores en C++. 
 
-## Sentencias 
-En términos generales, una **instrucción** en un lenguaje de programación es un conjunto de líneas de código que indica a la computadora realizar una acción específica. Es la unidad básica de un programa e incluye tareas como asignar valores, realizar cálculos, tomar decisiones o repetir operaciones.
 
-En C++, las instrucciones más comunes son las **sentencias**. Una **sentencia** es una instrucción que define una acción concreta en el programa, como **declarar una variable**, **realizar un cálculo**, **tomar una decisión** o **ejecutar un bucle**.
+En C++ las unidades más básicas de un programa son las **sentencias**. Una sentencia es una **instrucción** que indica al programa que realice una acción específica, como **declarar una variable**, **asignar un valor**, **evaluar una expresión** o **controlar el flujo de ejecución**. En otras palabras, las sentencias representan los pasos individuales que el programa ejecuta para llevar a cabo una tarea. Cuando el programa se ejecuta, estas instrucciones se procesan generalmente **una tras otra**, siguiendo el orden en el que aparecen en el código. En muchos casos, las sentencias terminan con un **punto y coma** (`;`), que indica el final de la instrucción.
 
-Las sentencias son, con diferencia, el tipo de instrucción más común en un programa de C++. Esto se debe a que son la unidad de cálculo independiente más pequeña del lenguaje C++. En ese sentido, funcionan de forma muy similar a las oraciones en el lenguaje natural. Cuando queremos transmitir una idea a otra persona, solemos escribir o hablar mediante oraciones (no con palabras o sílabas al azar). En C++, cuando queremos que nuestro programa haga algo, solemos escribir sentencias.
+Dentro de este conjunto de instrucciones existe un tipo de construcción especialmente importante: las **expresiones**. De forma general, una expresión es **cualquier fragmento de código que puede evaluarse para producir un valor**. Muchas de las operaciones que realizamos en un programa se expresan precisamente mediante expresiones. Por ejemplo, cuando asignamos un valor a una variable, normalmente utilizamos una expresión cuyo resultado se almacena en dicha variable.
 
-A grandes rasgos, en C++ podemos distingir tres tipos de sentencias: Simples, vacias y compuestas. 
+Hasta ahora hemos visto ejemplos sencillos, como asignar directamente un valor a una variable. Sin embargo, las expresiones pueden ser mucho más complejas: pueden combinar **valores constantes**, **variables** y **resultados de otras expresiones** para producir un nuevo valor. De hecho, una gran parte del trabajo que realiza un programa consiste en **evaluar expresiones** y utilizar sus resultados.
 
-![Tipos de Sentencias en C++](Sentencias.png)
+Para entender cómo las expresiones producen esos valores, debemos introducir otro concepto fundamental del lenguaje: los **operadores**. Un **operador** es un símbolo que indica que debe realizarse una determinada operación. Esta operación se aplica sobre uno o más **operandos**, que pueden ser valores constantes, variables o incluso otras expresiones. El operador toma esos operandos, aplica una regla definida por el lenguaje (por ejemplo, una operación **aritmética**, **lógica** o de **comparación**) y produce como resultado **un nuevo valor**.
 
-De igual manera, daremos ejemplos de esto en las siguientes entradas.  
+Gracias a los operadores es posible construir expresiones cada vez más elaboradas, combinando distintos valores y operaciones. En lo que resta de esta sección nos centraremos en estudiar los **operadores aritméticos**, que permiten realizar cálculos básicos y constituyen una de las herramientas más comunes para construir expresiones en C++.
+
+
+
+
 
 
