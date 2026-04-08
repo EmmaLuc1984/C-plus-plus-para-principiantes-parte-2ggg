@@ -47,7 +47,7 @@ int main() {
     return 0;
 }
 ```
-Cada uno de los elementos que van al flujo de salida pueden ser de diferente tipo, por ejemplo: 
+Tambien, cada uno de los elementos que van al flujo de salida pueden ser de diferente tipo, por ejemplo: 
 
 ```c++
 #include <iostream>
@@ -66,4 +66,13 @@ int main() {
 ```
 
 
-Algo importante que siempre debes recordar es 
+Como nota importante, recuerda siempre usar comillas para encerrar cadenas (como lo hicimos con `"Estas ultimas dos semanas he estado jugando"`). Si no escribes la cadena entre comillas, es probable que te aparezca un mensaje de error (como “UNDECLARED IDENTIFIER”) del compilador de C++. Si deseas imprimir una cadena que incluye un par de comillas, se debe escribir el carácter `\`, y un par de comillas, sin espacio entre ellas, en la cadena. Por ejemplo, para imprimir los caracteres: 
+
+```c++
+Felicidades "Elden Ring" por tu salida, saliste del videojuego
+```
+La instrucción debe escribirse de la siguiente manera: 
+
+```c++
+cout << "Felicidades \"Elden Ring\" por tu salida, saliste del videojuego"
+```
