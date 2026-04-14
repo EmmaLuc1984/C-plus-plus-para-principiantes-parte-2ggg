@@ -8,7 +8,7 @@ Imagina por un momento que eres un compilador de C++ y te dan el siguiente progr
 // ***************************************************************
 int main()
 {
- cout << "Feliz cumpleaños" << endl;
+ cout << "Feliz Cumpleaños :D" << endl;
  return 0;
 }
 ```
@@ -40,4 +40,49 @@ Antes, en el lenguaje C y en versiones antiguas de C++, los archivos de encabeza
 
 # Introducción a los Espacios de Nombres (Namespaces)
 
-Regresando al programa anterior, incluso si se añade la directiva al preprocesador `#include <iostream>`, el programa no compilará. El compilador aún no reconoce a `cout` y `endl`. La razón es que el archivo de encabezado `iostream` (al igual que todos los encabezados de la biblioteca estándar) define sus identificadores dentro de un *espacio de nombres* (*namespace*) denominado `std`.
+Regresando al programa anterior, incluso si se añade la directiva al preprocesador `#include <iostream>`, el programa no compilará. El compilador aún no reconoce a `cout` y `endl`. La razón es porque esos elementos pertenecen a un *espacio de nombres* (*namespace*) llamado `std`, que es como una “carpeta” donde se organizan elementos relacionados para evitar confusiones con otros nombres parecidos.
+
+Una forma de usar sus elementos es escribir su nombre completo, es decir, poner std:: antes del nombre:
+
+```c++
+std::cout
+```
+Así, el programa quedaría de la siguiente manera:
+
+``` c++ 
+// ***************************************************************
+// Este programa debe de imprimir en pantalla "feliz cumpleaños" 
+// ***************************************************************
+
+#include <iostream>
+
+int main()
+{
+    std::cout << "Feliz Cumpleaños :D" << std::endl;
+    return 0;
+}
+```
+
+Como puedes ver, tanto `cout` como `endl` deben escribirse con `std::` delante para que el programa los reconozca.
+
+La segunda opción es usar la sentencia `using namespace std;`. Si se coloca cerca del inicio del programa, antes de `main`, permite usar directamente los nombres que están dentro de `std` sin tener que escribir `std::` todo el tiempo. 
+
+Asi, nuestro programa del inicio queda de la siguiente forma: 
+
+```c++
+// ***************************************************************
+// Este programa debe de imprimir en pantalla "feliz cumpleaños" 
+// ***************************************************************
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "Feliz Cumpleaños :D" << endl;
+    return 0;
+}
+
+```
+
+Por el momento, dado que estamos trabajando en programas pequeños, esta bien usarlo, sin empargo, en programas grandes no es muy recomendable usar `using namespace std;`, pues hace que todos los nombres de `std` se mezclen con los del resto del programa. Esto puede causar confusiones si dos elementos tienen el mismo nombre o incluso provocar errores difíciles de detectar. Por eso, aunque es cómodo para programas pequeños o de práctica, en proyectos más grandes es mejor que escribas `std::` para dejar claro de dónde viene cada elemento.
