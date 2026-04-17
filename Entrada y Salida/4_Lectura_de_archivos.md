@@ -19,3 +19,8 @@ Si se desea que un programa trabaje con entrada y salida de archivos, hay cuatro
 Vamos a desmenuzar esto por partes: 
 
 ### *Incluir el *header* `fstream` mediante el preprocesador (`#include <fstream>`):*
+
+
+A través del encabezado `fstream`, la biblioteca estándar de C++ define dos tipos de datos: `ifstream` y `ofstream`, que corresponden, respectivamente, a flujos de entrada y de salida de archivos. De acuerdo con la idea general de los flujos en C++, `ifstream` representa una secuencia de caracteres que proviene de un archivo de entrada, mientras que `ofstream` representa una secuencia de caracteres que se dirige a un archivo de salida.
+
+Las operaciones que ya se conocen de `istream`, como el operador de extracción `>>`, la función `get` y la función `ignore`, también pueden utilizarse con `ifstream`. Del mismo modo, las operaciones de `ostream`, como el operador de inserción `<<` y los manipuladores como `endl`, también funcionan con `ofstream`. Además de estas operaciones básicas, `ifstream` y `ofstream` incluyen funciones adicionales diseñadas específicamente para trabajar con archivos.
