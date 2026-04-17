@@ -3,7 +3,7 @@
 Una de las principales ventajas de las computadoras es que un mismo programa puede utilizarse con diferentes conjuntos de datos. Para lograrlo, los datos deben permanecer separados del programa hasta el momento de su ejecución. Entonces, las instrucciones toman los valores del conjunto de datos y los asignan a las variables del programa. Una vez guardados en ellas, el programa ya puede realizar cálculos con esos valores.
 A este proceso de transferir valores desde un conjunto de datos externo hacia las variables de un programa se le llama entrada. En términos generales, también se dice que la computadora está leyendo datos externos para almacenarlos en variables. Estos datos pueden provenir de un dispositivo de entrada o de un archivo guardado en un dispositivo de almacenamiento. Más adelante veremos el uso de archivos; por ahora, se consideraremos al teclado como el medio estándar para introducir datos.
 
-## Flujo de Entarda y el Operador de Extracción `>>`
+## Flujo de Entrada y el Operador de Extracción `>>`
 
 
 El concepto de *flujo* es esencial para comprender la entrada y salida en C++. Como explicamos antes, un *flujo de salida* puede imaginarse como una sucesión continua de caracteres que viajan desde el programa hacia un dispositivo de salida. De forma similar, un *flujo de entrada* es una sucesión continua de caracteres que llega al programa desde un dispositivo de entrada.
@@ -81,29 +81,29 @@ Como mencionamos hace un ratito, el operador `>>` ignora los espacios en blanco 
 ```c++
 cin >> ch1 >> ch2; 
 ```
-y la entrada contiene: 
+y el flujo de entrada contiene: 
 
 ```c++
-'R' ' ' '1' 
+'R' '-' '1' // '-' dentota un espacio en blanco
 ```
 entonces el operador de extracción guarda R en `ch1`, pasa por alto el espacio en blanco y coloca 1 en `ch2`. Nota que el carácter '1' no es igual al entero 1; ambos se representan de forma distinta en la memoria, y el operador interpreta los datos según el tipo de variable que recibe.
 
 Ahora bien, si se quiere leer exactamente tres caracteres (R, un espacio y 1), `>>` no sirve, porque siempre omite los espacios en blanco. Para eso, el tipo `istream` ofrece otra opción: la función `get`, que lee el siguiente carácter sin saltarse ningún espacio. Una llamada a esta función se escribe así:
 
 ```c++
-cin.get(algunaVariableChar);
+cin.get(alguna_variable_char);
 ```
 
 Para usar `get`, se escribe primero el nombre de una variable de tipo `istream`  (en este caso, `cin`), luego un punto y después el nombre de la función junto con sus argumentos.
 
-Es importante notar que `get` se llama como una *función void*, es decir, la llamada completa forma una sentencia por sí sola y no se utiliza dentro de una expresión más grande. Su función es leer el siguiente carácter disponible en el flujo de entrada, incluso si es un espacio en blanco, y guardarlo en la variable indicada, como, en nuestro caso, `algunaVariableChar`.
+Es importante notar que `get` se llama como una *función void*, es decir, la llamada completa forma una sentencia por sí sola y no se utiliza dentro de una expresión más grande. Su función es leer el siguiente carácter disponible en el flujo de entrada, incluso si es un espacio en blanco, y guardarlo en la variable indicada, como, en nuestro caso, `alguna_variable_char`.
 
 Además, el argumento de `get` debe ser una variable, no una constante ni una expresión, porque la función necesita saber en qué lugar va a almacenar el carácter leído.
 
 Gracias a `get`, ahora es posible ingresar los tres caracteres anteriores:
 
 ```c++
-'R' ' ' '1' 
+'R' '-' '1'  // '-' denota el espacio en blanco que tecleamos en la computadora.
 ```
 
 Se pueden usar tres llamadas consecutivas para la función `get`:
@@ -165,7 +165,7 @@ int main() {
 Y supón que por alguna razón quie está usando el programa ingresa como edad: 
 
 ```c++
-25abc\n  \\ `\n` en este caso es el ebter que hacemos al momento de ingresar el último dato. 
+25abc\n  //`\n` en este caso es el enter que hacemos al momento de ingresar el último dato. 
 ```
 Entonces el flujo de entrada queda de la siguiente manera: 
 
@@ -180,3 +180,64 @@ Entonces `cin >>` solo toma como entrada 25 y el resto de carácteres se queda e
 ```
 
 ## Lectura de Datos de Cadena
+
+Ahora veremos como ingresar cadenas de caracteres: Para guardar una cadena de caracteres en una variable `string`, hay dos maneras principales. La primera consiste en usar el operador de extracción `>>`. Cuando este operador lee datos para una variable `string`, ignora primero los espacios en blanco al inicio y luego comienza a copiar los caracteres hasta encontrar el siguiente espacio en blanco. Ese espacio no se guarda en la cadena; simplemente queda pendiente en el flujo de entrada. Por ejemplo, si tenemos las instrucciones: 
+
+```c++
+string nombre; 
+string apellido; 
+cin >> nombre >> apellido; 
+```
+Y tenemos como flujo de entrada: 
+
+```c++
+'-' '-' 'P' 'e' 't' 'e' 'r' '-' '-' 'P' 'a' 'r' 'k' 'e' 'r' '-' '-' '-' '2' '5' 
+// '-' denota a un espacio en blanco
+```
+Es decir, que lo que ingresamos se ve de la forma: 
+
+```c++
+  Peter  Parker   25
+```
+
+entonces `nombre` almacena `Peter`, `apellido` alamcena `Parker` y lo que queda en el flujo es:
+
+```c++
+'-' '-' '-' '2' '5' 
+// '-' denota a un espacio en blanco
+ ```
+
+ Sin embargo, `>>` tiene una limitación importante: no sirve para leer cadenas que contengan espacios, porque la lectura se detiene en cuanto aparece uno. Por eso existe una segunda opción: la función `getline`. Esta función se usa de la siguiente manera: 
+
+ ```c++
+ getline(cin, alguna_variable_string);
+ ```
+
+ A diferencia del operador `>>`, `getline` recibe dos argumentos: el primero es el flujo de entrada, como `cin`, y el segundo es la variable `string` donde se guardará el texto. Esta función no salta los espacios iniciales y sigue leyendo hasta encontrar el carácter de nueva línea `\n`. En otras palabras, `getline` permite capturar una línea completa, incluyendo los espacios que haya dentro. El salto de línea se lee, pero no se guarda dentro de la cadena. El ejemplo completo quedaria de esta manera: 
+
+
+```c++
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+    string nombre_completo_y_edad;
+
+    cout << "Escribe tu nombre completo: ";
+    getline(cin, nombre_completo_y_edad);
+
+    cout << "Tu nombre completo es: " << nombre_completo_y_edad << endl;
+
+    return 0;
+}
+```
+
+Si tu ingresas:
+
+```c++
+  Peter  Parker   25
+
+```
+entonces `nombre_completo_y_edad` guardará todo incluyendo espacios, hasta encontrar el salto de linea. 
