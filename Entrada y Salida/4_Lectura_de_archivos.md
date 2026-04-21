@@ -77,8 +77,68 @@ Cerrar un archivo hace que el sistema operativo realice las tareas finales neces
 Hay un último detalle que debe realizarse al trabajar con archivos. Como ya se indicó, todas las operaciones de `istream` también funcionan con `ifstream`, y todas las operaciones de `ostream` también pueden usarse con `ofstream`. Por eso, para leer o escribir en un archivo, basta con reemplazar `cin` o `cout` por el flujo de archivo correspondiente en las sentencias de entrada y salida. Vamos a revisar esto, para ello considera el siguiente programa: 
 
 ```c++
+//**************************************************************
+// Programa: Compra de un videojuego
+// Este programa lee datos desde un archivo, calcula el total
+// de compra y guarda el recibo en otro archivo.
+//**************************************************************
 
+#include <fstream>   // PASO 1: INCLUIR EL HEADER PARA LOS ARCHIVOS
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
 
+int main()
+{
+    // PASO 2: DECLARAR LOS FLUJOS DE ENTRADA
+    ifstream in_data;     // flujo de entrada
+    ofstream out_data;    // flujo de salida
+
+    // Variables
+    string juego;
+    float precio;
+    float descuento;
+    float iva = 0.16f;
+    float monto_descuento;
+    float subtotal;
+    float total;
+
+    // PASO 3: ABRIR LOS ARCHIVOS
+    in_data.open("juego.in");
+    out_data.open("juego.out");
+
+    // Verificar que el archivo de entrada se abrió bien
+    if (!in_data)
+    {
+        cout << "No se pudo abrir el archivo de entrada." << endl;
+        return 1;
+    }
+
+    // PASO 4: USAR EL NOMBRE DEL FLUJO EN LA LECTURA
+    getline(in_data, juego);   // nombre del videojuego
+    in_data >> precio;         // precio original
+    in_data >> descuento;      // porcentaje de descuento
+
+    // Cálculos
+    monto_descuento = precio * (descuento / 100.0f);
+    subtotal = precio - monto_descuento;
+    total = subtotal + (subtotal * iva);
+
+    // PASO 4: usar el nombre del flujo en la escritura
+    out_data << fixed << setprecision(2);
+    out_data << "Videojuego: " << juego << endl;
+    out_data << "Precio original: $" << precio << endl;
+    out_data << "Descuento: " << descuento << "%" << endl;
+    out_data << "Subtotal: $" << subtotal << endl;
+    out_data << "Total con IVA: $" << total << endl;
+
+    // Cerrar archivos
+    in_data.close();
+    out_data.close();
+
+    return 0;
+}
 
 
 ```
