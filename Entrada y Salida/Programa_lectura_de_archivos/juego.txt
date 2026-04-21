@@ -1,0 +1,5 @@
+Videojuego: 
+Precio original: $0.00
+Descuento: 0.00%
+Subtotal: $0.00
+Total con IVA: $0.00
