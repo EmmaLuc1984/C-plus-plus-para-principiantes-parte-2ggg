@@ -74,7 +74,7 @@ Cerrar un archivo hace que el sistema operativo realice las tareas finales neces
 
 ### Indicar el nombre del flujo de archivo en cada operación de entrada o salida: 
 
-Hay un último detalle que debe realizarse al trabajar con archivos. Como ya se indicó, todas las operaciones de `istream` también funcionan con `ifstream`, y todas las operaciones de `ostream` también pueden usarse con `ofstream`. Por eso, para leer o escribir en un archivo, basta con reemplazar `cin` o `cout` por el flujo de archivo correspondiente en las sentencias de entrada y salida. Vamos a revisar esto, para ello considera el siguiente programa: 
+Hay un último detalle que debe realizarse al trabajar con archivos. Como ya se indicó, todas las operaciones de `istream` también funcionan con `ifstream`, y todas las operaciones de `ostream` también pueden usarse con `ofstream`. Por eso, para leer o escribir en un archivo, basta con reemplazar `cin` o `cout` por el flujo de archivo correspondiente en las sentencias de entrada y salida. Vamos a revisar esto, para ello, es bueno tener un problema como referencia. Imagina que has ahorrado suficiente dinero para comprar algún videojuego que te llame la atención durante las rebajas de Navidad. Desafortunadamente, la plataforma que usas es PS5 y sabes que los precios de su tienda oficial no están regionalizados, así que el costo del juego se mantiene igual sin importar desde dónde lo compres. Para ayudarte a organizar tu compra, decides hacer un pequeño programa en C++ que lea el nombre del videojuego, su precio original y el porcentaje de descuento desde un archivo de texto. Con esos datos, te gustaría que el programa calcule cuánto pagarás realmente aplicando el descuento y agregando el IVA correspondiente, y que finalmente guarde el recibo final en otro archivo de texto.
 
 ```c++
 //**************************************************************
@@ -106,7 +106,7 @@ int main()
 
     // PASO 3: ABRIR LOS ARCHIVOS
     in_data.open("juego.in");
-    out_data.open("juego.out");
+    out_data.open("recibo.out");
 
     // Verificar que el archivo de entrada se abrió bien
     if (!in_data)

@@ -1,0 +1,5 @@
+Videojuego: Resident Evil Requiem
+Precio original: $2000.00
+Descuento: 10.00%
+Subtotal: $1800.00
+Total con IVA: $2088.00

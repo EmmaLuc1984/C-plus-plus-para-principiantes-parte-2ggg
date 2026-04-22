@@ -21,7 +21,7 @@ int main()
 
     // PASO 3: ABRIR LOS ARCHIVOS
     in_data.open("juego.txt");
-    out_data.open("juego.txt");
+    out_data.open("recibo.txt");
 
     // Verificar que el archivo de entrada se abrió bien
     if (!in_data)
