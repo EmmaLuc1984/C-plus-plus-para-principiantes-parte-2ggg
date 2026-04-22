@@ -74,7 +74,10 @@ Cerrar un archivo hace que el sistema operativo realice las tareas finales neces
 
 ### Indicar el nombre del flujo de archivo en cada operación de entrada o salida: 
 
-Hay un último detalle que debe realizarse al trabajar con archivos. Como ya se indicó, todas las operaciones de `istream` también funcionan con `ifstream`, y todas las operaciones de `ostream` también pueden usarse con `ofstream`. Por eso, para leer o escribir en un archivo, basta con reemplazar `cin` o `cout` por el flujo de archivo correspondiente en las sentencias de entrada y salida. Vamos a revisar esto, para ello, es bueno tener un problema como referencia. Imagina que has ahorrado suficiente dinero para comprar algún videojuego que te llame la atención durante las rebajas de Navidad. Desafortunadamente, la plataforma que usas es PS5 y sabes que los precios de su tienda oficial no están regionalizados, así que el costo del juego se mantiene igual sin importar desde dónde lo compres. Para ayudarte a organizar tu compra, decides hacer un pequeño programa en C++ que lea el nombre del videojuego, su precio original y el porcentaje de descuento desde un archivo de texto. Con esos datos, te gustaría que el programa calcule cuánto pagarás realmente aplicando el descuento y agregando el IVA correspondiente, y que finalmente guarde el recibo final en otro archivo de texto.
+Hay un último detalle que debe realizarse al trabajar con archivos. Como ya habiamos visto, todas las operaciones de `istream` también funcionan con `ifstream`, y todas las operaciones de `ostream` también pueden usarse con `ofstream`. Por eso, para leer o escribir en un archivo, basta con reemplazar `cin` o `cout` por el flujo de archivo correspondiente en las sentencias de entrada y salida. 
+Vamos a revisar esto a partir de un problema como referencia. Imagina que has ahorrado suficiente dinero para comprar un videojuego que te llama la atención durante las rebajas de Navidad. Sin embargo, la plataforma que usas es PS5, y sabes que los precios de su tienda oficial no están regionalizados, así que el costo del juego se mantiene igual sin importar desde dónde lo compres. Para ayudarte a organizar tu compra, decides crear un pequeño programa en C++ que lea desde un archivo de texto el nombre del videojuego, su precio original y el porcentaje de descuento. Con esos datos, el programa calculará cuánto tendrás que pagar realmente, aplicando el descuento y agregando el IVA correspondiente, y finalmente guardará el recibo final en otro archivo de texto. 
+
+Un programa para esta tarea podría ser el siguiente: 
 
 ```c++
 //**************************************************************
@@ -105,8 +108,8 @@ int main()
     float total;
 
     // PASO 3: ABRIR LOS ARCHIVOS
-    in_data.open("juego.in");
-    out_data.open("recibo.out");
+    in_data.open("juego.txt");
+    out_data.open("recibo.txt");
 
     // Verificar que el archivo de entrada se abrió bien
     if (!in_data)
@@ -142,3 +145,27 @@ int main()
 
 
 ```
+
+
+En este progrma se usan las sentencias: 
+
+```c++
+ getline(in_data, juego);   // nombre del videojuego
+    in_data >> precio;         // precio original
+    in_data >> descuento;      // porcentaje de descuento
+```
+para instruir a la computadora para que lea datos del archivo `juego.txt` a través del flujo de entrada `in_data`. De manera similar, todas las sentencias de salida que envían información al archivo `recibo.txt` deben usar `out_data` y no `cout` como destino: 
+
+```c++
+out_data << fixed << setprecision(2);
+    out_data << "Videojuego: " << juego << endl;
+    out_data << "Precio original: $" << precio << endl;
+    out_data << "Descuento: " << descuento << "%" << endl;
+    out_data << "Subtotal: $" << subtotal << endl;
+    out_data << "Total con IVA: $" << total << endl;
+```
+
+
+## Programas auxiliares
+
+En la carpeta `Programa_lectura_de_archivos` viene este programa con un ejemplo de entrada y salida. 
