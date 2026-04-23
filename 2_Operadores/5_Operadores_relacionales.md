@@ -12,7 +12,7 @@ Los operadores relacionales son los siguientes:
   
 Como puedes intuir, todos ellos son operadores binarios. 
 
-Ahora bien, para poder hacer uso de estos operadores, normalmente los combinamos con estructuras de control (tema que abordaremos con mayor profundidad más adelante), como `if`, `while` o `switch` que nos permiten ejecutar ciertas instrucciones solo cuando una condición se cumple.  Por ejemplo, la estructura `if` funciona de la siguiente manera: 
+Ahora bien, para poder hacer uso de estos operadores, normalmente los combinamos con estructuras de control (tema que abordaremos con mayor profundidad más adelante), como `if`, `while` o `switch` que nos permiten ejecutar ciertas instrucciones solo cuando una condición se cumple.  Por poner un ejemplo, la estructura `if` funciona de la siguiente manera: 
 
 
 
@@ -27,7 +27,7 @@ if (condicion) // Se evalúa una cierta condición
 ```
 
 
-Así, si tenemos: 
+Usando esta estructura de control, un ejemplo de como emplear el operador `<` es el siguiente: 
 
 
 ```c++
