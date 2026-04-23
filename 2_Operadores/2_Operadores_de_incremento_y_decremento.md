@@ -11,20 +11,20 @@ int contador_de_ovejas;
 
 contador_de_ovejas=0;
 ```
-Cada vez que una oveja pasa por nuestros pensamientos queremos que la variable se incremente, así:
+Cada vez que una oveja pasa por nuestros pensamientos queremos que la variable se incremente, es decir, que haga algo como esto:
 
 ``` c++
 contador_de_ovejas = contador_de_ovejas+1;
 ```
  Instrucciones similares a estas aparecen frecuentemente al momento de programar, por lo que los creadores del lenguaje C++ introdujeron un conjunto de operadores especiales para estas acciones.
 
- Con el operador `++` podemos escribir lo anterior de una manera mas concisa: 
+ Con el operador `++` podemos escribir la sentencia anterior de una manera mas concisa: 
 
  ``` c++
 contador_de_ovejas++;
 ```
 
-De igual forma, también se puede disminuir el valor de una variable elegida. Por ejemplo, si estamos deseando que lleguen nuestras vacaciones, nuestra mente realiza la siguiente operación cada dia: 
+De igual forma, también se puede disminuir el valor de una variable. Por ejemplo, si estamos deseando que las vacaciones lleguen ya, nuestra mente realiza la siguiente operación cada dia: 
 
  ``` c++
 dias_hasta_vacaciones = dias_hasta_vacaciones-1;
@@ -34,7 +34,8 @@ O equivalentemente:
 ``` c++
 dias_hasta_vacaciones--;
 ```
-Ya has visto como funcionan `++` y `--` cuando los ponemos a la derecha de las variables (en la literatura lo puedes encontrar como **postfijo** o **sufijo**). Sin embargo, ambos operadores también pueden colocarse a la izquierda de una variable (como operadores de prefijo), asi: 
+
+Ya has visto como funcionan `++` y `--` cuando los ponemos a la derecha de las variables (en la literatura lo puedes encontrar como *postfijo* o *sufijo*). Sin embargo, ambos operadores también pueden colocarse a la izquierda de una variable (como operadores de prefijo), asi: 
 
 ``` c++
 ++contador_de_ovejas;
@@ -48,7 +49,7 @@ int x{1};
 --x; 
 ```
 
-Se incrementa/decrementa la variable en 1 y devuelve su valor **ya** incrementado/reducido. Y si tomamos: 
+Se incrementa/decrementa la variable en 1 y devuelve su valor *ya incrementado/reducido*. Y si tomamos: 
 
 ```c++
 int x{1}; 
@@ -56,7 +57,7 @@ x++;
 x--; 
 ```
 
-Devuelve el valor de la variable original (sin cambios) y luego incrementa/decrementa la variable en 1. Para ver como es que esto afecta de manera mas significativa, consideremos los siguientes ejemplos: 
+Devuelve el valor de la variable original (sin cambios) y luego incrementa/decrementa la variable en 1. Esto puede ser algo confuso en principio, asi que veamos un par de ejemplos más significativos. Inicialicemos:  
 
 ```c++
 int i{1};
@@ -68,7 +69,7 @@ int i{1};
 int j{++i};
 ```
 
-Para el primer ejemplo, se inicializa la variable `ì` en uno, y al usarse `++` como postfijo ocurre lo siguiente: 
+Para el primer ejemplo, se inicializa la variable `ì` en 1, y al usarse `++` como postfijo ocurre lo siguiente: 
 
 - `j` recibe el valor de 1. 
 - Posteriormente `i` toma el valor de 2. 
@@ -76,8 +77,8 @@ Para el primer ejemplo, se inicializa la variable `ì` en uno, y al usarse `++` 
 Lo que al final nos da como resultado que: 
 
 ```c++
-i == 2
-j == 1
+i == 2 // i es exactamente igual a 2
+j == 1 // j es exactamente igual a 1
 ```
 
 
@@ -88,12 +89,12 @@ Para el segundo ejemplo, se vuelve a inicializar la variable `i` en 1, y al usar
 Lo que nos da como resultado que: 
 
 ```c++
-i == 2
-j == 2
+i == 2 // i es exactamente igual a 2
+j == 2 // j es exactamente igual a 2
 ```
 
 
-Todo lo que acabamos de ver viene resumido en la siguiente tabla: 
+La siguiente tabla resume el contenido de esta lección: 
 
 
 
