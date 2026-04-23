@@ -1,4 +1,4 @@
-# Coerción De Tipos
+# Coerción de Tipos
 
 Los valores enteros y los valores de punto flotante se almacenan de modo diferente en la memoria de una computadora. El patrón de bits que representa la constante 2 no se parece en absoluto al patrón de bits que representa a la constante 2.0. Entonces, ¿qué sucede si se combinan valores enteros y de punto flotante en una sentencia de asignación o una expresión aritmetica? Por ejemplo, ¿que ocurre si consideramos? : 
 
