@@ -168,4 +168,4 @@ out_data << fixed << setprecision(2);
 
 ## Programas auxiliares
 
-En la carpeta `Programa_lectura_de_archivos` viene este programa con un ejemplo de entrada y salida. 
+En la carpeta `Programa_lectura_de_archivos` viene este programa con un ejemplo de entrada y salida de archivos. 

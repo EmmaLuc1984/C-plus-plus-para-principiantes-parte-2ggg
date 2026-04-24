@@ -21,7 +21,7 @@ istream cin;
 ostream cout;
 ```
 
-La primera indica que `cin` es una variable de tipo `istream`. La segunda señala que `cout` es una variable de tipo `ostream`. En general, `cin` está asociado con el dispositivo de entrada estándar, que normalmente es el teclado, mientras que `cout` se relaciona con el dispositivo de salida estándar, que por lo común es la pantalla.
+La primera indica que `cin` es una variable de tipo `istream`. La segunda señala que `cout` es una variable de tipo `ostream`. En general, `cin` está asociado con el dispositivo de entrada estándar, que normalmente es el teclado, mientras que `cout` se relaciona con el dispositivo de salida estándar, que por lo común es la pantalla (o de manera más estricta, la consola).
 
 Como ya vimos en entradas anteriores, puedes enviar valores a `cout` mediante el operador de inserción `<<`:
 
@@ -64,7 +64,7 @@ Algunas cosas mas que debes de saber sobre el uso del operador de extracción so
 
 ## Marcador de Lectura 
 
-Para entender un poco mejor cómo funciona la entrada de datos, tenemos el concepto de *marcador de lectura*. Este marcador funciona como un separador que indica en qué parte del flujo de entrada debe seguir leyendo la computadora. Es decir, señala cuál es el siguiente carácter que todavía no se ha leído. El operador de extracción `>>` deja ese marcador justo después del último dato capturado. Por ejemplo, supon que quieres ingresar los datos 25 8 y el porgrama tiene las siguientes sentencias: 
+Para entender un poco mejor cómo funciona la entrada de datos, tenemos el concepto de *marcador de lectura*. Este marcador funciona como un separador que indica en qué parte del flujo de entrada debe seguir leyendo la computadora. Es decir, señala cuál es el siguiente carácter que todavía no se ha leído. El operador de extracción `>>` deja ese marcador justo después del último dato capturado. Por ejemplo, supón que quieres ingresar los datos 25 8 y el porgrama tiene las siguientes sentencias: 
 
 ``` c++
 int x, y;
@@ -84,7 +84,7 @@ cin >> ch1 >> ch2;
 y el flujo de entrada contiene: 
 
 ```c++
-'R' '-' '1' // '-' dentota un espacio en blanco
+'R' '-' '1' // '-' denota un espacio en blanco
 ```
 entonces el operador de extracción guarda R en `ch1`, pasa por alto el espacio en blanco y coloca 1 en `ch2`. Nota que el carácter '1' no es igual al entero 1; ambos se representan de forma distinta en la memoria, y el operador interpreta los datos según el tipo de variable que recibe.
 
@@ -127,9 +127,8 @@ Por lo general, la primer forma suele ser mas facil de leer y entender.
 
 
 
-## Omitir Carácterees con la Función `ignore `
-
-En C++ contamos con la función `ignore`, la cual del tipo `istream`. Esta es una herramienta que casi nunca se usa, pero que resulta muy útil cuando se necesita. Sirve para leer y descartar caracteres que están en el flujo de entrada, es decir, hace que el programa ignore parte de lo que el usuario escribió. Es una función con dos argumentos, llamada de esta manera:
+## Omitir Carácterees con la Función `ignore` 
+En C++ contamos con la función `ignore`, la cual es del tipo `istream`. Esta es una herramienta que casi nunca se usa, pero que resulta muy útil cuando se necesita. Sirve para leer y descartar caracteres que están en el flujo de entrada, es decir, hace que el programa ignore parte de lo que el usuario escribió. Es una función con dos argumentos, la cual puedes llamar de esta manera:
 
 ```c++
 cin.ignore(cantidad, delimitador);
@@ -162,7 +161,7 @@ int main() {
 }
 ```
 
-Y supón que por alguna razón quie está usando el programa ingresa como edad: 
+Y supón que por alguna razón quien está usando el programa ingresa como edad: 
 
 ```c++
 25abc\n  //`\n` en este caso es el enter que hacemos al momento de ingresar el último dato. 
@@ -173,13 +172,13 @@ Entonces el flujo de entrada queda de la siguiente manera:
 '2' '5' 'a' 'b' 'c' '\n' 
 ```
 
-Entonces `cin >>` solo toma como entrada 25 y el resto de carácteres se queda en el *buffer*. Posteriormente `cin.ignore(100, '\n');` elimina del *buffer*: 
+Así `cin >>` solo toma como entrada 25 y el resto de carácteres se queda en el *buffer*. Posteriormente `cin.ignore(100, '\n');` elimina del *buffer*: 
 
 ```c++
 'a' 'b' 'c' '\n'
 ```
 
-## Lectura de Datos de Cadena
+## Lectura de Datos de Cadena y uso de `getline`
 
 Ahora veremos como ingresar cadenas de caracteres: Para guardar una cadena de caracteres en una variable `string`, hay dos maneras principales. La primera consiste en usar el operador de extracción `>>`. Cuando este operador lee datos para una variable `string`, ignora primero los espacios en blanco al inicio y luego comienza a copiar los caracteres hasta encontrar el siguiente espacio en blanco. Ese espacio no se guarda en la cadena; simplemente queda pendiente en el flujo de entrada. Por ejemplo, si tenemos las instrucciones: 
 
@@ -241,3 +240,7 @@ Si tu ingresas:
 
 ```
 entonces `nombre_completo_y_edad` guardará todo incluyendo espacios, hasta encontrar el salto de linea. 
+
+## Programas Adicionales
+
+El archivo `entrada_y_salida_interactiva.cpp` encontrarás un programa sencillo como ejemplo de los temas abordados en `1_Salida.md` y en esta entrada. 

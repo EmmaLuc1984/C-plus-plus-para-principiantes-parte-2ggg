@@ -40,9 +40,9 @@ Antes, en el lenguaje C y en versiones antiguas de C++, los archivos de encabeza
 
 # Introducción a los Espacios de Nombres (Namespaces)
 
-Regresando al programa anterior, incluso si se añade la directiva al preprocesador `#include <iostream>`, el programa no compilará. El compilador aún no reconoce a `cout` y `endl`. La razón es porque esos elementos pertenecen a un *espacio de nombres* (*namespace*) llamado `std`, que es como una “carpeta” donde se organizan elementos relacionados para evitar confusiones con otros nombres parecidos.
+Regresando al programa anterior, incluso si se añade la directiva al preprocesador `#include <iostream>`, el programa no compilará. El compilador aún no reconoce a `cout` y `endl`. La razón es porque esos elementos pertenecen a un *espacio de nombres* (*namespace*) llamado `std`, que es como una *“carpeta donde se organizan elementos relacionados para evitar confusiones con otros nombres parecidos"*.
 
-Una forma de usar los elementos de esa "carpeta" es escribir su nombre completo, es decir, poner std:: antes del nombre:
+Una forma de usar los elementos de esa "carpeta" es escribir su nombre completo, es decir, poner `std::` antes del nombre:
 
 ```c++
 std::cout
@@ -85,4 +85,4 @@ int main()
 
 ```
 
-Por el momento, dado que estamos trabajando en programas pequeños, esta bien usarlo, sin empargo, en programas grandes no es muy recomendable usar `using namespace std;`, pues hace que todos los nombres de `std` se mezclen con los del resto del programa. Esto puede causar confusiones si dos elementos tienen el mismo nombre o incluso provocar errores difíciles de detectar. Por eso, aunque es cómodo para programas pequeños o de práctica, en proyectos más grandes es mejor que escribas `std::` para dejar claro de dónde viene cada elemento.
+Por el momento, dado que estamos trabajando en programas pequeños, esta bien usarlo, sin embargo, en programas grandes no es muy recomendable usar `using namespace std;`, pues hace que todos los nombres de `std` se mezclen con los del resto del programa. Esto puede causar confusiones si dos elementos tienen el mismo nombre o incluso provocar errores difíciles de detectar. Por eso, aunque es cómodo para programas pequeños o de práctica, en proyectos más grandes es mejor que escribas `std::` para dejar claro de dónde viene cada elemento.

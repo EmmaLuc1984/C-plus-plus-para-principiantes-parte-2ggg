@@ -21,10 +21,10 @@ El operador de inserción `<<` toma dos operandos. Su operando izquierdo es una 
 using namespace std;
 
 int main() {
-    string nombreDelJuego = "Elden Ring";
+    string nombre_del_videojuego = "Elden Ring";
 
     cout << "Estas ultimas dos semanas he estado jugando ";
-    cout << nombreDelJuego + " compulsivamente";
+    cout << nombre_del_videojuego + " compulsivamente";
 
     return 0;
 }
@@ -40,9 +40,9 @@ Se puede emplear el operador `<<` múltiples veces dentro de una misma instrucci
 using namespace std;
 
 int main() {
-    string nombreDelJuego = "Elden Ring";
+    string nombre_del_videojuego = "Elden Ring";
 
-    cout << "Estas ultimas dos semanas he estado jugando "<< nombreDelJuego + " compulsivamente"; 
+    cout << "Estas ultimas dos semanas he estado jugando "<< nombre_del_videojuego  + " compulsivamente"; 
 
     return 0;
 }
@@ -56,10 +56,10 @@ Tambien, cada uno de los elementos que van al flujo de salida pueden ser de dife
 using namespace std;
 
 int main() {
-    int diasJugando = 14;
-    string nombreDelJuego = "Elden Ring";
+    int dias_jugando = 14;
+    string nombre_del_videojuego = "Elden Ring";
 
-    cout << "Llevo " << diasJugando << " dias jugando " << nombreDelJuego + " compulsivamente";
+    cout << "Llevo " << dias_jugando << " dias jugando " << nombre_del_videojuego + " compulsivamente";
 
     return 0;
 }
@@ -106,7 +106,7 @@ Mundo
 ```
 El identificador `endl` es una característica especial de C++ llamada *manipulador*. Veremos que es un manipulador más adelante. Lo importante es que notes que `endl` permite terminar una línea de salida e ir a la siguiente siempre que lo desees.
 
-Taambien puedes replicar los resultados anteriores de la siguiente manera: 
+Tambien puedes replicar los resultados anteriores de la siguiente manera: 
 
 ```c++
 cout << "Hola\n";
