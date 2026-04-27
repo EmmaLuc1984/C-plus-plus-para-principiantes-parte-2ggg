@@ -20,7 +20,7 @@ La siguiente tabla muestra algunos de los tipos de datos mas comunes junto con s
 | `double`             | Punto flotante de doble precisión              | 8 bytes | ~ ±1.7e±308 (≈ 15 dígitos de precisión) |
 | `long double`        | Long de punto flotante de doble precisión      | 8 bytes | ~ ±1.7e±308 (≈ 15 dígitos — depende del compilador) |
 
-`Rango de valores*` hace referencia al conjunto de numeros que pueden representar. `sin signo` o mas precisamente `unsigned` hace referencia a que un tipo de dato no puede guardar valores negativos. `unsigned` se usa antes de un tipo entero para indicar que solo almacenará valores cero o positivos. Por ejemplo: `unsigned int`, `unsigned short` y `unsigned long`.
+`Rango de valores*` hace referencia al conjunto de numeros que pueden representar. Este tambien es conocido como *dominio*, asi que tómalo en cuenta.  `sin signo` o mas precisamente `unsigned` hace referencia a que un tipo de dato no puede guardar valores negativos. `unsigned` se usa antes de un tipo entero para indicar que solo almacenará valores cero o positivos. Por ejemplo: `unsigned int`, `unsigned short` y `unsigned long`.
 
 Se usa principalmente con tipos enteros, como `int`, `short`, `long`. No se usa normalmente con `float` o `double`, porque esos tipos ya representan números reales y no trabajan de la misma forma con el signo.
 
