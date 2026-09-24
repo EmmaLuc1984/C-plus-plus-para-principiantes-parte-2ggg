@@ -93,7 +93,7 @@ El miembro seleccionado se comporta como cualquier otra variable de su tipo. Por
 
 En nuestro ejemplo, podemos utilizar los selectores de miembro para trabajar con las diferentes calificaciones de un alumno. Por ejemplo, el siguiente fragmento de código puede utilizarse para que ingreses las calificaciones a lo largo del curso, hacer el promedio correspondiente y posteriormente asignar una calificación final: 
 
-```cpp
+```c++
 #include <iostream>
 #include <string>
 using namespace std;

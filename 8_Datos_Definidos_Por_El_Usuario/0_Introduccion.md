@@ -1,12 +1,35 @@
 # Datos Definidos Por el Usuario 
 
+Hasta ahora hemos venido trabajando con programas donde se han utilizado principalmente tipos de datos que ya forman parte del lenguaje, como `int`, `float`, `char` y `bool`. Sin embargo, C++ también permite que el programador **defina y organice sus propios tipos de datos** para representar información de una manera más adecuada al problema que se desea resolver.
 
-## Datos Simples vs Datos Estructurados
+Los **datos definidos por el usuario** permiten crear nombres alternativos para tipos existentes, establecer un conjunto de valores relacionados o agrupar diferentes datos dentro de una misma entidad. Esto resulta especialmente útil cuando los tipos básicos del lenguaje no son suficientes para representar la información de un programa de forma clara y ordenada.
 
-A lo largo de este curso se ha puesto especial atención en cosas como variables, funciones o estructuras de control. En lo que resta del curso centraremos nuestra atención en las formas en como podemos estructurar datos y como procesarlos. Para hacer esta transición, conviene estudiar con más detalle el concepto de *tipo de dato*.
+Dentro de esta categoría se encuentran diferentes mecanismos, entre los que destacan los **alias de tipos**, las **enumeraciones**, los **registros** y las **uniones**. Aunque todos permiten trabajar con tipos definidos por el programador, no funcionan de la misma manera. Por ejemplo, un alias únicamente proporciona otro nombre para un tipo que ya existe, mientras que una enumeración permite definir un conjunto de valores con nombre.
 
-Hasta el momento, se han utilizado principalmente los tipos `int`, `char`, `bool` y `float`. Estos tipos básicos permiten resolver una gran variedad de problemas, pero no siempre son suficientes, ya que algunos programas requieren otros tipos de datos.
+Por otra parte, cosas como las uniones y los registros son algo llamado **tipos de datos estructurados**, ya que estos permiten organizar varios datos dentro de una misma estructura. En un registro, por ejemplo, cada miembro puede almacenar su propio valor al mismo tiempo mientras que en una unión, todos los miembros comparten el mismo espacio de memoria y, en un momento dado, se utiliza uno de ellos.
 
-Estos tipos de datos tambien comparten una caracteristica en común: su rango de valores o *dominio* está formado por valores indivisibles. A los tipos de datos que presentan esta propiedad se les llama *tipos simples* o *atómicos*. Decir que un valor es atómico significa que no puede descomponerse para acceder a sus partes por separado. Por ejemplo, un solo carácter de tipo `char` es atómico, pero no lo es la cadena `Buenos Dias`, porque está formada por 10 caracteres individuales. Otra manera de definir un tipo simple es señalar que una variable de ese tipo solo puede almacenar un único valor. En cambio, un *tipo estructurado* permite asociar una colección completa de valores con una sola variable. Un ejemplo de esto es un *objeto* del tipo `string`, que representa un conjunto de caracteres bajo un solo nombre. 
+En las siguientes entradas se estudiarán estos mecanismos y las características que distinguen a cada uno. 
 
-Los tipos de datos simples, tanto los integrados como los definidos por el usuario, sirven como base para construir tipos estructurados. Un tipo estructurado agrupa varios valores componentes y, por lo general, establece una organización determinada. La forma de acceder a cada componente depende de la manera en que esos elementos están dispuestos. Al estudiar distintas formas de estructurar datos, también es conveniente analizar los mecanismos que permiten acceder a sus partes individuales. open
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
