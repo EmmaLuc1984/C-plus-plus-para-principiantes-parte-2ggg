@@ -1,8 +1,8 @@
-# Problemas En Registros
+# Problemas En `structs`
 
-En la sección de `Datos definidos por el usuario` conocimos los registros (`struct`) y vimos que son muy útiles para agrupar varias variables dentro de un solo objeto, facilitando su inicialización y el manejo de todos sus datos dentro de una sola unidad. En otras palabras, los registros ofrecen una forma práctica de organizar, almacenar y manipular información relacionada.
+En el capítulo anterior (`Datos definidos por el usuario`) conocimos los registros (`struct`) y vimos que son muy útiles para agrupar varias variables dentro de un solo objeto, facilitando su inicialización y el manejo de todos sus datos dentro de una sola unidad. En otras palabras, los registros ofrecen una forma práctica de organizar, almacenar y manipular información relacionada.
 
-Consideremos el siguiente registro:
+Consideremos la siguiente `struct`:
 
 ```c++
 #include <iostream>
@@ -180,4 +180,3 @@ La salida es:
 ```c++
 4/10/21
 ```
-Quizas te preguntes que es `public`. Tranquilo, en el transcurso de esta unidad lo iremos desarrollando.

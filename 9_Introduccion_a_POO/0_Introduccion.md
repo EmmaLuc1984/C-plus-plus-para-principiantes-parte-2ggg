@@ -1,5 +1,6 @@
 # Paradigmas En Los Lenguajes De Programación
-En el primer capitulo de este curso definimos de manera escueta un **objeto** en C++ como «un fragmento de memoria que se puede usar para almacenar valores», un ejemplo de ello es una variable. 
+
+En el primer capitulo de este curso definimos de manera escueta un **objeto** en C++ como *un fragmento de memoria que se puede usar para almacenar valores*, un ejemplo de ello es una variable. 
 
 Hasta ahora nuestros programas en C++ han consistido en listas secuenciales de instrucciones para la computadora que definen datos (a través de objetos) y operaciones realizadas sobre esos datos (a través de funciones que contienen sentencias y expresiones).
 
