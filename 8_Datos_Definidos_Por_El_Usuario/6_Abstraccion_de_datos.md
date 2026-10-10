@@ -1,4 +1,4 @@
-# Abtrabción De Datos 
+# Abstracción De Datos 
 
 A medida que aumenta la complejidad del software, el diseño de los algoritmos y de las estructuras de datos se realiza de manera conjunta. Este proceso parte de una representación lógica o abstracta de la estructura de datos, planteada en un nivel general, y avanza mediante sucesivas etapas de refinamiento hasta llegar a su implementación concreta en C++.
 
