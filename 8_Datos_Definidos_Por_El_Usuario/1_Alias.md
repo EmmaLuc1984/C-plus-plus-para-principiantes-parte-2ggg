@@ -1,4 +1,4 @@
-# Using y Typedef
+# Using Y Typedef
 
 Como ya hemos visto, los tipos de datos son una parte fundamental de C++. Además de los tipos básicos como `int`, `double` o `char`, el lenguaje permite trabajar con tipos más complejos y crear un *alias* para los tipos existentes.
 

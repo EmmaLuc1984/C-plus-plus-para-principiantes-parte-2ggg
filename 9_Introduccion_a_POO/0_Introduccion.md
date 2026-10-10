@@ -33,7 +33,5 @@ Estos objetos también ofrecen una forma más intuitiva de trabajar con nuestros
 
 En la siguiente lección veremos cómo crear este tipo de objetos.
 
-# Programación Procedimental vs POO
 
-Para notar un poco mas las diferencias entre ambos paradigmas, veamos un par de ejemplos: 
 

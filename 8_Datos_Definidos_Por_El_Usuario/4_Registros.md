@@ -31,7 +31,7 @@ La palabra reservada `struct` es una abreviatura de "estructura". Como en progra
 
 Como podrás haberte dado cuenta, la sintaxis de una lista de miembros se parece mucho a poner varias declaraciones de variables, pero no es lo mismo: una declaración `struct` define un tipo de dato, no una variable en sí. Después, todavía será necesario declarar variables de ese tipo para reservar memoria y poder asociar cada ubicación con los nombres de sus miembros.
 
-Para poder entender como funciona un registro veamos el siguiente ejemplo: Supongamos que queremos utilizar un `struct` para representar la información de un alumno de nuestro curso de **Taller de Herramientas Computacionales**. Para ello, seria bueno que pudiesemos almacenar su **nombre y apellido**, el **promedio general** que tenía antes de cursar la clase, las **calificaciones de las tareas del curso**, las **calificaciones de las prácticas del curso**, el **examen final** y finalmente la **calificación final del curso**. Para ello primero podriamoss declarar una enumeración que permita representar su calificación final mediante las opciones A, B, C, D y F para depués definir alguna estructura (digamos `Registro_alumno`) que contenga todos los datos que se desea almacenar. Un pequeño intento podria ser el siguiente: 
+Para poder entender como funciona un registro veamos el siguiente ejemplo: Supongamos que queremos utilizar un `struct` para representar la información de un alumno de nuestro **Taller de Herramientas Computacionales**. Para ello, seria bueno que pudiesemos almacenar su **nombre y apellido**, el **promedio general** que tenía el alumno antes de cursar la clase, las **calificaciones de las tareas del curso**, las **calificaciones de las prácticas del curso**, el **examen final** y finalmente la **calificación final del curso**. Para ello primero podriamoss declarar una enumeración que permita representar su calificación final mediante las opciones A, B, C, D y F para depués definir alguna estructura (digamos `Registro_alumno`) que contenga todos los datos que se desea almacenar. Un pequeño intento podria ser el siguiente: 
 
 ```c++
 
@@ -56,13 +56,13 @@ int calificacion;
 
 ```
 
-Observa que la declaración de una `struct` termina con punto y coma. Quizá puede que te resulte confuso, ya que anteriormente habias visto que un bloque de instrucciones encerrado entre llaves no lleva punto y coma después de la llave de cierre. Sin embargo, las llaves de una declaración `struct` no representan un bloque de instrucciones; forman parte de la sintaxis utilizada para definir la estructura. Por esta razón, la declaración completa debe terminar con un punto y coma.
+Observa que la declaración de una `struct` termina con punto y coma. Quizá puede que te resulte confuso, ya que anteriormente habiamos visto que un bloque de instrucciones encerrado entre llaves no lleva punto y coma después de la llave de cierre. Sin embargo, las llaves de una declaración `struct` no representan un bloque de instrucciones; forman parte de la sintaxis utilizada para definir la estructura. Por esta razón, la declaración completa debe terminar con un punto y coma.
 
 Los identificadores `nombre`, `apellido`, `promedio`, `calificacion_tareas`, `calificacion_practicas`, `examen_final` y `calificacion_curso` son los miembros de la estructura `Registro_alumno`. En conjunto, estos miembros forman la lista de miembros de la estructura.
 
 Cada miembro tiene asociado un tipo de dato. En este ejemplo, `nombre` y `apellido` son de tipo `string`; `promedio` es de tipo `float`; `calificacion_tareas`, `calificacion_practicas` y `examen_final` son de tipo `int`; y `calificacion_curso` es de tipo `Tipo_calificacion`, una enumeración cuyos posibles valores son A, B, C, D y F.
 
-También es importante notar que la declaración de la estructura, por sí sola, no crea espacios de memoria para almacenar los datos de un alumno. `Registro_alumno` funciona como un modelo o patrón que indica qué información tendrá una variable de ese tipo.
+También es importante notar que la declaración de la `struct`, por sí sola, no crea espacios de memoria para almacenar los datos de un alumno. `Registro_alumno` funciona como un modelo o patrón que indica qué información tendrá una variable de ese tipo.
 
 Cuando se declaran variables como `primer_alumno` y `alumno` de tipo `Registro_alumno`, entonces sí se reserva el espacio de memoria necesario para almacenar los datos correspondientes a cada alumno.
 
@@ -184,7 +184,7 @@ int main()
 ## Operaciones Sobre `struct`
 
 
-Además de acceder a los miembros individuales de una variable `struct`, también es posible trabajar con la **estructura completa como una sola unidad**. A estas acciones las podemos llamar **operaciones sobre estructuras** (tambien las puedes encontrar como operaciones de agregación), ya que involucran a la estructura en su conjunto, en lugar de manipular únicamente uno de sus miembros.
+Además de acceder a los miembros individuales de una variable `struct`, también es posible trabajar con variables de tipo `struct` como una sola unidad. A estas acciones las podemos llamar **operaciones sobre variables del tipo `struct`** (tambien las puedes encontrar como operaciones de agregación), ya que involucran a la `struct` en su conjunto, en lugar de manipular únicamente uno de sus miembros.
 
 
 
@@ -211,7 +211,7 @@ En este caso, la estructura completa `jugador1` queda creada con los valores pro
 
 ### Asignaciones
 
-También es posible asignar una estructura completa a otra del mismo tipo:
+También es posible asignar una `struct` a otra del mismo tipo:
 
 ```c++
 Jugador jugador1{"Vinicius Jr", 95, 89, 84, 95, 32, 75};
@@ -232,7 +232,7 @@ jugador2.ritmo = 97;
 
 ### Estructuras Como Argumentos de Funciones
 
-Una estructura completa puede enviarse como argumento a una función:
+Una `struct` puede enviarse como argumento a una función:
 
 ```cpp
 void mostrar_jugador(Jugador jugador) {
@@ -257,7 +257,7 @@ Aquí la función recibe una variable de tipo `Jugador` completa y puede acceder
 
 ### Devolver Una Estructura Desde Una Función
 
-Una función también puede devolver una estructura completa:
+Una función también puede devolver una `struct`:
 
 ```c++
 Jugador crear_jugador() {
@@ -273,9 +273,9 @@ int main() {
 
 ### Entrada y Salida
 
-Una estructura no puede utilizarse directamente con `cin` o `cout`, ya que estos operadores no saben automáticamente cómo leer o mostrar todos los miembros de una estructura.
+Una `struct` no puede utilizarse directamente con `cin` o `cout`, ya que estos operadores no saben automáticamente cómo leer o mostrar todos los miembros de una `struct`.
 
-Por ejemplo, esto no está definido para una `struct` ordinaria:
+Por ejemplo, esto no está definido para una `struct`:
 
 ```c++
 Jugador jugador;
@@ -307,11 +307,11 @@ cout << jugador.ritmo << '\n';
 cout << jugador.tiro << '\n';
 ```
 
-Más adelante es posible definir funciones u operadores para darle a la estructura un comportamiento personalizado con `cin` y `cout`.
+
 
 ### Comparaciones
 
-Tampoco existe, para una `struct` ordinaria, una regla automática que indique qué significa comparar dos estructuras completas.
+Tampoco existe, para una `struct`, una regla automática que indique qué significa comparar dos `struct`.
 
 Por ejemplo:
 
@@ -341,7 +341,7 @@ if (jugador1.nombre == jugador2.nombre &&
 }
 ```
 
-De esta manera, la comparación se realiza sobre los miembros que forman parte de la estructura.
+De esta manera, la comparación se realiza sobre los miembros que forman parte de la `struct`.
 
 También podemos comparar únicamente algunos de sus miembros:
 
@@ -354,7 +354,7 @@ if (jugador1.ritmo > jugador2.ritmo) {
 
 ### Operadores Aritméticos
 
-Los operadores aritméticos tampoco tienen un significado para una `struct`. No tiene sentido para C++ sumar, restar o multiplicar dos estructuras.
+Los operadores aritméticos tampoco tienen un significado para una `struct`. No tiene sentido para C++ sumar, restar o multiplicar datos del tipo `struct`.
 
 Por ejemplo:
 
@@ -387,7 +387,7 @@ cout << "Promedio de pase: " << promedio_pase << '\n';
 
 ### Estructuras De Control
 
-Una estructura tampoco puede utilizarse directamente como una condición de `if`, `while` o `for` simplemente por ser una estructura:
+Una `struct` tampoco puede utilizarse directamente como una condición de `if`, `while` o `for` por el simple hecho de ser una `struct`:
 
 ```c++
 Jugador jugador{"Vinicius Jr", 95, 89, 84, 95, 32, 75};
@@ -417,11 +417,11 @@ if (jugador.ritmo >= 90 && jugador.regate >= 90) {
 
 ## Registros Jerárquicos
 
-Hasta ahora se han visto ejemplos en los que los miembros de una `struct` son variables de tipos `int`, `float` o `string`. Sin embargo, **un miembro de una estructura también puede ser otra estructura**. Cuando una estructura contiene como miembros otras estructuras, hablamos de una **estructura jerárquica**.
+Hasta ahora se han visto ejemplos en los que los miembros de una `struct` son variables de tipos `int`, `float` o `string`. Sin embargo, **un miembro de una `struct` también puede ser otra `struct`**. Cuando un registro contiene como miembros otros registros, hablamos de un **registro jerárquico**.
 
 Consideremos un ejemplo. Un pequeño almacén de máquinas necesita almacenar información sobre cada una de ellas. Por un lado, se tienen **datos descriptivos**, como el número de identificación, una descripción, la fecha de compra y el costo. Por otro lado, también se conservan **datos estadísticos**, como el índice de fallas, el número de días que la máquina ha estado fuera de servicio y la fecha de su último mantenimiento.
 
-Una primera forma de almacenar toda esta información sería colocarla directamente dentro de una sola estructura:
+Una primera forma de almacenar toda esta información sería colocarla directamente dentro de una sola `struct`:
 
 ```cpp
 struct Registro_maquina {
@@ -450,8 +450,7 @@ El tipo `Registro_maquina` tiene **11 miembros**. Aunque toda la información es
 
 Podemos mejorar esta organización agrupando los datos relacionados. En este caso, hay dos fechas que necesitamos almacenar: la **fecha de compra** y la **fecha del último servicio**. Además, algunos datos corresponden al historial estadístico de la máquina.
 
-Esto sugiere crear una estructura para representar una fecha, otra para representar la información estadística y, finalmente, una estructura general que contenga estas estructuras como miembros.
-
+Esto sugiere crear una `struct` para representar una fecha, otra para representar la información estadística y, finalmente, una `struct` que contenga a las otras `struct` como miembros
 ```cpp
 struct Fecha {
 
@@ -485,13 +484,13 @@ struct Registro_maquina {
 Registro_maquina maquina;
 ```
 
-Ahora la información está organizada de una manera más clara. La estructura `Registro_maquina` contiene dos miembros que también son estructuras: `fecha_compra`, que es de tipo `Fecha`, e `historial`, que es de tipo `Estadisticas`. A su vez, `Estadisticas` contiene otro miembro de tipo `Fecha`, llamado `ultimo_servicio`.
+Ahora la información está organizada de una manera más clara. La `struct` `Registro_maquina` contiene dos miembros que también son `struct`: `fecha_compra`, que es de tipo `Fecha`, e `historial`, que es de tipo `Estadisticas`. A su vez, `Estadisticas` contiene otro miembro de tipo `Fecha`, llamado `ultimo_servicio`.
 
-De esta manera se forma una **estructura jerárquica**, ya que unas estructuras se encuentran contenidas dentro de otras.
+De esta manera se forma un **registro jerárquico** (o una **`struct` jerárquica** o **estructuras jerárquicas**), ya que unas `struct` se encuentran contenidas dentro de otras.
 
 ### Acceso A Miembros De Estructuras Jerárquicas
 
-Para acceder a un miembro que se encuentra dentro de una estructura jerárquica, se escriben los nombres de los miembros **de izquierda a derecha**, utilizando el operador `.` y comenzando con el nombre de la variable de la estructura.
+Para acceder a un miembro que se encuentra dentro de una estructura jerárquica, se escriben los nombres de los miembros **de izquierda a derecha**, utilizando el operador `.` y comenzando con el nombre de la variable de la `struct`.
 
 Por ejemplo:
 
@@ -515,7 +514,7 @@ De la misma manera:
 maquina.fecha_compra.anio
 ```
 
-permite acceder al miembro `anio` de la estructura `Fecha` almacenada en `fecha_compra`.
+permite acceder al miembro `anio` de la `struct` `Fecha` almacenada en `fecha_compra`.
 
 También podemos acceder a un miembro que se encuentra a varios niveles de profundidad:
 
