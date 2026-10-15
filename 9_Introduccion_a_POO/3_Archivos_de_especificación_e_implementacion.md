@@ -234,7 +234,7 @@ bool Tiempo::es_menor_que(/* entrada */ Tiempo otro_tiempo) const
 
 Este archivo de implementación permite identificar varias características importantes del funcionamiento de las clases en C++.
 
-    Inclusión del archivo de especificación
+1. Inclusión del archivo de especificación
 
 Al comienzo del archivo aparece la directiva de preprocesador:
 
@@ -244,7 +244,7 @@ Al comienzo del archivo aparece la directiva de preprocesador:
 
 Tanto el archivo de implementación como los archivos del código cliente que utilizan la clase deben incluir su archivo de especificación. Esto permite que todos trabajen con la misma declaración de `Tiempo` y evita que existan declaraciones incompatibles entre la clase y las partes del programa que la utilizan.
 
-    Referencia a los miembros privados
+2. Referencia a los miembros privados
 
 En el archivo de implementación se puede incluir un comentario que recuerde cuáles son los miembros privados de la clase:
 
@@ -257,7 +257,7 @@ En el archivo de implementación se puede incluir un comentario que recuerde cu�
 
 Este comentario sirve como referencia para el programador. Cuando las funciones miembro utilizan los identificadores `horas`, `minutos` y `segundos` sin especificar un objeto, están haciendo referencia a los miembros del objeto sobre el que se ejecuta la función.
 
-    Uso del operador de resolución de alcance (`::`)
+3. Uso del operador de resolución de alcance (`::`)
 
 En los encabezados de las definiciones aparece el nombre de la clase seguido del operador `::`. Por ejemplo:
 
@@ -269,7 +269,7 @@ Esta notación indica que `incrementar` es una función miembro de la clase `Tie
 
 Así, aunque otras clases también tengan una función llamada `incrementar`, la expresión `Tiempo::incrementar` identifica específicamente la función miembro de `Tiempo`.
 
-    Acceso a los miembros desde las funciones miembro
+4. Acceso a los miembros desde las funciones miembro
 
 Cuando el código cliente utiliza una función miembro, necesita indicar el objeto sobre el que desea ejecutarla mediante el operador punto (`.`). Por ejemplo:
 
@@ -312,7 +312,7 @@ compara las horas de dos objetos diferentes. El identificador `horas`, escrito s
 Aunque `horas` es un miembro privado, la función miembro puede acceder también a los miembros privados de otros objetos de la misma clase. Esta característica permite comparar sus datos sin hacerlos públicos ni permitir que el código cliente acceda directamente a ellos.
 
 
-    Funciones miembro constantes
+5. Funciones miembro constantes
 
 Las funciones `escribir`, `es_igual` y `es_menor_que` son funciones de observación, ya que consultan los datos del objeto sin modificarlos. Por este motivo, sus declaraciones incluyen la palabra clave `const` al final de la lista de parámetros:
 
