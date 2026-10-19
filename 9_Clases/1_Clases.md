@@ -1,14 +1,14 @@
 # Clases 
 
-En capítulos anteriores se han estudiado los valores de datos como entidades pasivas sobre las cuales actúan distintas funciones. Por ejemplo, se han utilizado enumeraciones para representar algun conjunto de cosas y se han realizado operaciones sobre sus valores mediante funciones que los reciben como parámetros. De manera similar, al trabajar con registros, hemos mostrado el ejemplo de la información de un alumno la cual se ha representado mediante una `struct` y también se han implementado funciones que reciben dicha estructura como argumento.
+En capítulos anteriores hemos tratado a los datos como entidades pasivas sobre las cuales actúan distintas funciones. Por ejemplo, se han utilizado enumeraciones para representar conjuntos de cosas y se han realizado operaciones sobre sus valores mediante funciones que los reciben como parámetros. De manera similar, al trabajar con registros, hemos mostrado el ejemplo de la información de un alumno, la cual se ha representado mediante una `struct` y también se han implementado funciones que reciben dicha estructura como argumento.
 
 Sin embargo, mantener los datos separados de las operaciones que trabajan con ellos no representa del todo la idea de un tipo de dato abstracto. Esto se debe a que un TDA comprende tanto un conjunto de valores como las operaciones que pueden realizarse sobre ellos. Por ello, resulta más adecuado concebirlo como una estructura de datos activa, en la que los datos y las operaciones se integran en una misma unidad.
 
-C++ permite adoptar este enfoque mediante las **clases**, un tipo estructurado del lenguaje que facilita la definición de tipos de datos abstractos. Los cuatro tipos estructurados fundamentales de C++ son los arreglos, los registros (`struct`), las uniones (`union`) y las clases (`class`).
+C++ permite adoptar este enfoque mediante las **clases**, un tipo de dato estructurado que facilita la definición de tipos de datos abstractos. Los cuatro tipos estructurados fundamentales de C++ son los arreglos, los registros (`struct`), las uniones (`union`) y las clases (`class`).
 
 Aunque una clase comparte ciertas características con un registro, su propósito va más allá de agrupar datos. Generalmente, sus miembros incluyen tanto los datos que describen un objeto como las funciones encargadas de operar sobre ellos. De esta manera, se reúnen en una misma unidad la información y las operaciones asociadas.
 
-A continuación, se presenta una declaración de clase en C++ que representa el TDA `Tiempo`, definido en el capitulo anterior:
+A continuación, se presenta una declaración de clase en C++ que representa el TDA `Tiempo`, presentado al final del capitulo anterior:
 
 ```cpp
 class Tiempo
@@ -51,7 +51,7 @@ En las declaraciones de clases se utilizan las palabras reservadas `public` y `p
 
 En la clase `Tiempo`, las funciones miembro `establecer`, `incrementar`, `escribir`, `es_igual` y `es_menor_que` pueden acceder a las variables privadas `horas`, `minutos` y `segundos`. El código cliente, en cambio, no puede acceder directamente a estas variables, sino que debe interactuar con los objetos mediante las operaciones públicas proporcionadas por la clase.
 
-Esta separación entre los miembros públicos y privados es una característica fundamental del diseño de los tipos de datos abstractos. Para preservar las propiedades y la consistencia de un TDA, sus objetos deben manipularse a través de las operaciones establecidas en su interfaz pública, evitando modificaciones directas que puedan producir estados inválidos. Este principio se retomará más adelante.
+Esta separación entre los miembros públicos y privados es una característica fundamental del diseño de los tipos de datos abstractos. Para preservar las propiedades y la consistencia de un TDA, sus objetos deben manipularse a través de las operaciones establecidas en su interfaz pública, evitando modificaciones directas que puedan producir estados inválidos. 
 
 
 ## Clases, Objetos De Clase Y Miembros De Clase
@@ -69,13 +69,11 @@ Aunque ambos objetos pertenecen a la misma clase, cada uno posee sus propias cop
 
 Es importante señalar que las funciones miembro no se duplican físicamente para cada objeto. Por ejemplo, el compilador genera una sola copia de la función `Incrementar`, que puede ser utilizada por todos los objetos de la clase. Sin embargo, podemos imaginar que cada objeto dispone de sus propias funciones para comprender mejor cómo interactúa con sus datos.
 
-Finalmente, es necesario diferenciar entre un **objeto de una clase** y un **miembro de una clase**. En el ejemplo anterior, `tiempo_1` y `tiempo_2` son dos objetos distintos de la clase `Tiempo`. Cada uno contiene sus propias variables miembro y comparte el acceso a las funciones miembro definidas en dicha clase.
-
-## Operadores Con Objetos De Clase 
+## Operaciones Con Objetos De Clase 
 
 Las clases definidas por el programador comparten varias características con los tipos de datos integrados de C++. Por ejemplo, es posible crear tantos objetos de una misma clase como sean necesarios, utilizarlos como argumentos de funciones o devolverlos como resultados. Además, al igual que ocurre con otras variables, los objetos pueden tener duración automática: se crean cuando la ejecución llega a su declaración y se destruyen cuando termina su ámbito.
 
-Sin embargo, C++ también establece diferencias entre los tipos integrados y los tipos definidos mediante `struct` o `class`. La mayoría de los operadores disponibles para los tipos integrados no pueden utilizarse directamente con objetos de estas clases. Por ejemplo, no es posible sumar dos objetos de tipo `Tiempo` mediante el operador `+` ni compararlos directamente con `==`, a menos que se definan las operaciones correspondientes para esos tipos.
+Sin embargo, C++ también establece diferencias entre los tipos integrados y los tipos definidos como `struct` o `class`. La mayoría de los operadores disponibles para los tipos integrados no pueden utilizarse directamente con objetos de estas clases. Por ejemplo, no es posible sumar dos objetos de tipo `Tiempo` mediante el operador `+` ni compararlos directamente con `==`, a menos que se definan las operaciones correspondientes para esos tipos.
 
 Entre las operaciones que sí pueden utilizarse con los objetos de clase se encuentran la **selección de miembros** (`.`) y la **asignación** (`=`). La primera permite acceder a un miembro específico escribiendo el nombre del objeto, seguido de un punto y del nombre del miembro. Por ejemplo:
 
@@ -104,7 +102,7 @@ int minutos_entrada;
 int segundos_entrada;
 
 tiempo_1.establecer(5, 20, 0);
-// Afirmar: tiempo_1 representa las 5:20:00.
+//  tiempo_1 representa las 5:20:00.
 
 cout << "Introduzca horas, minutos y segundos: ";
 cin >> horas_entrada >> minutos_entrada >> segundos_entrada;
@@ -117,16 +115,17 @@ if (tiempo_1.es_menor_que(tiempo_2))
 tiempo_2 = tiempo_1;  // Asignación entre objetos.
 
 tiempo_2.escribir();
-// Afirmar: se muestra el tiempo 5:20:00.
+// se muestra el tiempo 5:20:00.
 ```
 
 En este ejemplo, la función `es_menor_que` permite comparar dos objetos de tipo `Tiempo`, aunque solo recibe un parámetro explícito. Esto se debe a que el objeto sobre el que se invoca la función, `tiempo_1`, también participa en la comparación. En la expresión `tiempo_1.es_menor_que(tiempo_2)`, el primer objeto aparece antes del operador punto, mientras que el segundo se proporciona como argumento.
 
 Por tanto, cuando una función miembro representa una operación binaria, el primer operando corresponde al objeto que invoca la función y los operandos restantes se indican mediante sus parámetros. De manera general, una operación de *n* operandos requiere *n* − 1 parámetros explícitos cuando se implementa como una función miembro. En cambio, una operación unaria, como `incrementar` o `escribir` en la clase `Tiempo`, no necesita parámetros explícitos, pues opera directamente sobre el objeto que la invoca.
 
-Existen otros operadores que pueden utilizarse con objetos de tipo `struct` y `class`, especialmente aquellos relacionados con las direcciones de memoria. Sin embargo, su estudio se puede dejar para más adelante. Por el momento, conviene concentrarse en la selección de miembros mediante `.` y en la asignación mediante `=`, así como en la forma en que las funciones miembro permiten trabajar con los datos de un objeto.
+Existen otros operadores que pueden utilizarse con objetos de tipo `struct` y `class`, especialmente aquellos relacionados con las direcciones de memoria. Sin embargo, su estudio se puede dejar para más adelante. Por el momento es mejor concentrarnos en la selección de miembros mediante `.` y en la asignación mediante `=`, así como en la forma en que las funciones miembro permiten trabajar con los datos de un objeto.
 
-Hasta ahora, las clases de C++ también se han utilizado en un contexto cotidiano: la entrada y salida de información. La biblioteca estándar incluye el encabezado `<iostream>`, que proporciona las clases `istream` y `ostream` para gestionar, respectivamente, los flujos de entrada y salida.
+## Ejemplos Dentro Del Lenguaje
+Aunque no lo creas, hemos trabajado con clases todo el tiempo, aunque estas siempre se han usado en un contexto mas cotidiano: la entrada y salida de información. La biblioteca estándar incluye el encabezado `<iostream>`, que proporciona las clases `istream` y `ostream` para gestionar, respectivamente, los flujos de entrada y salida.
 
 La biblioteca estándar también proporciona los objetos `cin` y `cout`, que permiten leer datos y mostrar información. Por ejemplo, la clase `istream` ofrece funciones miembro como `get` e `ignore`, que pueden utilizarse de la siguiente manera:
 
@@ -137,7 +136,7 @@ cin.get(caracter);
 cin.ignore(200, '\n');
 ```
 
-En la primera instrucción, `get` permite leer un carácter. En la segunda, `ignore` descarta hasta 200 caracteres o hasta encontrar un salto de línea, según cuál de esas condiciones se cumpla primero. En ambos casos se utiliza la notación de punto para invocar una función miembro del objeto `std::cin`.
+En la primera instrucción, `get` permite leer un carácter. En la segunda, `ignore` descarta hasta 200 caracteres o hasta encontrar un salto de línea, según cuál de esas condiciones se cumpla primero. En ambos casos se utiliza la notación de punto para invocar una función miembro del objeto `cin`.
 
 Las clases también se emplean al trabajar con archivos. El encabezado `<fstream>` proporciona, entre otras, las clases `ifstream` y `ofstream`, destinadas a la lectura y escritura de archivos, respectivamente. Por ejemplo:
 
@@ -173,3 +172,46 @@ escribir(numero);
 El compilador de C++ puede distinguir sin dificultad a cuál de las tres funciones se refiere cada instrucción. En las dos primeras llamadas, el operador punto (`.`) indica que se debe invocar una función miembro del objeto correspondiente. Así, `tiempo_entrada.escribir()` llama a la función miembro de la clase `Tiempo`, mientras que `algun_objeto.escribir()` invoca la función miembro de `Alguna_clase`.
 
 En cambio, la última instrucción no utiliza el operador punto, por lo que hace referencia a la función global `escribir`, que recibe `numero` como argumento. De esta manera, el alcance de clase permite que diferentes clases y el ámbito global contengan funciones con el mismo nombre, sin que el compilador las confunda.
+
+
+## Ocultación De Información
+
+Desde una perspectiva conceptual, podemos imaginar que cada objeto de una clase está rodeado por una barrera invisible llamada **barrera de abstracción**. Esta barrera delimita el acceso a la información interna del objeto, impidiendo que el código cliente acceda directamente a sus datos y funciones privadas. De esta manera, los detalles internos permanecen separados de aquello que el objeto muestra al exterior. Esta separación es fundamental para las clases y los tipos de datos abstractos.
+
+Para que un objeto pueda interactuar con el código cliente, es necesario establecer puntos de acceso a través de dicha barrera. Estos puntos conforman la **interfaz pública** de la clase y están constituidos por los miembros declarados como públicos. Por medio de esta interfaz, el cliente puede solicitar operaciones e interactuar con el objeto sin necesidad de conocer su funcionamiento interno. Así, cualquier modificación de los datos internos debe realizarse mediante las operaciones públicas que la clase proporciona, en lugar de acceder directamente a ellos.
+
+En ingeniería existe un concepto semejante conocido como *caja negra*. Se trata de un dispositivo o módulo cuyo funcionamiento interno permanece oculto para quien lo utiliza. El usuario únicamente necesita conocer sus especificaciones, es decir, qué hace y cómo debe utilizarse, sin tener que comprender los mecanismos internos que permiten su funcionamiento. Para interactuar con él, utiliza los puntos de conexión disponibles y confía en que el dispositivo cumpla con lo establecido en sus especificaciones.
+
+En el desarrollo de software, esta idea se relaciona con la **ocultación de información**, un principio que permite utilizar una clase sin conocer todos los detalles de su implementación. Además, protege los datos y el código internos frente a modificaciones externas que podrían provocar errores o comprometer el funcionamiento correcto del objeto.
+
+Estos conceptos están relacionados con algo llamado  *encapsulamiento*. Por ejemplo, al definir una función, es posible separar su implementación del código que la utiliza, de modo que el cliente solo necesite conocer su interfaz. De manera similar, las funciones miembro de una clase pueden implementarse en archivos separados de aquellos en los que se encuentra el código cliente. Esto permite ocultar los detalles internos y facilita el mantenimiento del programa.
+
+El programador que diseña una clase de C++ puede decidir qué miembros serán públicos y cuáles permanecerán privados. Sin embargo, permitir el acceso público a los miembros, como suele hacerse en tipos como `struct`, permite que el código cliente consulte y modifique sus valores directamente. Esto reduce el control que tiene la clase sobre sus propios datos.
+
+Por este motivo, muchas clases siguen una organización habitual: los miembros de datos se colocan en la sección privada, mientras que las funciones que permiten consultar o modificar esos datos se declaran en la sección pública. Esta distribución favorece la ocultación de información y permite establecer reglas para el uso correcto de los objetos.
+
+La clase `Tiempo` es un ejemplo de esta organización. Sus miembros de datos `horas`, `minutos` y `segundos` se declaran como privados, por lo que el código cliente no puede acceder a ellos directamente. En consecuencia, el siguiente fragmento produciría un error de compilación:
+
+```cpp
+Tiempo tiempo_entrada;
+
+tiempo_entrada.horas = 9;  // Error: acceso a un miembro privado.
+```
+
+Aunque el objeto `tiempo_entrada` pertenece a la clase `Tiempo`, esto no significa que el código cliente tenga acceso a todos sus miembros. El compilador impide la modificación directa de `horas`, ya que este miembro se encuentra en la sección privada. Para establecer el tiempo, el cliente debe utilizar las funciones públicas que la clase proporciona, por ejemplo, `establecer`.
+
+Por otro lado, las funciones miembro de una clase sí pueden acceder a sus miembros privados. Esto permite que el diseñador controle cómo se consulta y modifica la información interna, estableciendo las operaciones permitidas y procurando que los objetos mantengan un estado válido.
+
+En algunos casos, puede resultar útil permitir que el código cliente consulte los datos internos sin tener la posibilidad de modificarlos directamente. Para ello, se pueden proporcionar **funciones de observación**, cuya finalidad es obtener información del objeto sin alterar su estado. En la clase `Tiempo`, las funciones `escribir`, `es_igual` y `es_menor_que` cumplen esta función, ya que permiten mostrar o comparar los tiempos sin modificar los datos almacenados.
+
+En C++, las funciones miembro que no modifican el estado observable del objeto pueden declararse con la palabra clave `const`, colocada después de la lista de parámetros y antes del cuerpo de la función. Por ejemplo, las declaraciones correspondientes en la clase `Tiempo` serían:
+
+```cpp
+void escribir() const;
+bool es_igual(Tiempo) const;
+bool es_menor_que(Tiempo) const;
+```
+
+Estas funciones se conocen como **funciones miembro constantes**. Dentro de una función miembro declarada como `const`, el compilador impide modificar directamente los miembros de datos no estáticos del objeto mediante esa función. De esta manera, la declaración comunica tanto al compilador como a quienes utilizan la clase que la operación no debe modificar el estado del objeto.
+
+Aunque el lenguaje no obliga a declarar como `const` todas las funciones miembro que no modifican el estado del objeto, hacerlo constituye una buena práctica de programación. Además de documentar la intención del programador, ayuda al compilador a detectar modificaciones accidentales y permite utilizar esas funciones con objetos constantes.

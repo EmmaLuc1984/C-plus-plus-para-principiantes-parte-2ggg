@@ -97,9 +97,8 @@ Así, la ocultación de información no depende exclusivamente de que los detall
 
 El archivo de especificación (`.h`) de la clase `Tiempo` contiene únicamente su declaración. Para completar la clase, se necesita un archivo de implementación que incluya las definiciones de todas sus funciones miembro, es decir, el código que establece cómo se ejecuta cada operación. En este ejemplo, el archivo se denomina `Tiempo.cpp`, aunque la extensión utilizada para los archivos de código fuente puede variar según el compilador o el entorno de desarrollo.
 
-A continuación, se presenta el código de implementación de la clase `Tiempo`. Por ahora, conviene concentrarse en comprender las operaciones que realiza cada función, sin preocuparse demasiado por la sintaxis nueva que aparece en sus encabezados, particularmente el uso del nombre de la clase seguido del operador `::`.
+A continuación, se presenta el código de implementación de la clase `Tiempo`. Por ahora, intenta concentrarte en comprender que hace cada función. Cosas como el operador `::` los veremos mas adelante.
 
-### Código Del Archivo `Tiempo.cpp`
 
 ```cpp
 //******************************************************************
@@ -112,6 +111,7 @@ A continuación, se presenta el código de implementación de la clase `Tiempo`.
 #include "Tiempo.h"
 #include <iostream>
 
+using namespace std; 
 //******************************************************************
 void Tiempo::establecer(/* entrada */ int horas_entrada,
                         /* entrada */ int minutos_entrada,
@@ -179,17 +179,17 @@ void Tiempo::escribir() const
     if (horas < 10)
         std::cout << '0';
 
-    std::cout << horas << ':';
+        cout << horas << ':';
 
     if (minutos < 10)
-        std::cout << '0';
+        cout << '0';
 
-    std::cout << minutos << ':';
+        cout << minutos << ':';
 
     if (segundos < 10)
-        std::cout << '0';
+        cout << '0';
 
-    std::cout << segundos;
+        cout << segundos;
 }
 
 //******************************************************************

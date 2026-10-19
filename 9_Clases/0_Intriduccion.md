@@ -127,7 +127,7 @@ Lo ideal sería que nuestros tipos de clase pudieran proteger sus propios datos,
 
 Sin embargo, los registros, debido a la forma en como funcionan, no ofrecen los mecanismos necesarios para controlar estas situaciones de una manera sencilla y adecuada.
 
-# Introducción A Las Clases 
+# Antecedentes
 
 Durante el desarrollo de C++, Bjarne Stroustrup (creador de C++) buscaba incorporar mecanismos que permitieran a los programadores crear **tipos definidos por el usuario** que pudieran utilizarse de una manera más intuitiva. También estaba interesado en encontrar soluciones elegantes para algunos de los problemas frecuentes y las dificultades de mantenimiento que aparecen en programas grandes y complejos, como el problema de los invariantes de clase mencionado anteriormente.
 
@@ -136,7 +136,7 @@ A partir de su experiencia con otros lenguajes de programación, especialmente c
 Al igual que los registros, una **clase** es un tipo de dato estructurado definido por el usuario que puede contener múltiples variables miembro de diferentes tipos.
 
 ## Definición De Una Clase 
-A grandes rasgos, una clase tiene la misma sintaxis que un registro: 
+Para finalizar esta lección, veamos como declaramos una clase. A grandes rasgos, una clase tiene la misma sintaxis que un registro: 
 
 ```c++
 
