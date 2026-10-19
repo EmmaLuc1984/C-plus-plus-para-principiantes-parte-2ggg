@@ -33,6 +33,3 @@ Como las propiedades y los comportamientos ya no se encuentran separados, **los 
 Estos objetos también ofrecen una forma más intuitiva de trabajar con nuestros datos, ya que nos permiten definir **cómo interactuamos con los objetos y cómo estos interactúan entre sí**.
 
 En la siguiente lección veremos cómo crear este tipo de objetos.
-
-
-
