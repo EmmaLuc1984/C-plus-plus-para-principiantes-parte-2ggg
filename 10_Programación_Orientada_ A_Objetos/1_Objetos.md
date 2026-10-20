@@ -6,17 +6,17 @@ En programación orientada a objetos, un **objeto** es una entidad que reúne da
 
 Los métodos constituyen la interfaz mediante la cual otros objetos pueden consultar o modificar el estado de un objeto. De esta manera, el acceso a los datos internos se controla a través de las operaciones que este proporciona.
 
-Un programa orientado a objetos está formado por un conjunto de objetos que interactúan entre sí mediante el envío de mensajes. Por ejemplo, si tenemos un par de objetos A y B, si el objeto A necesita que el objeto B realice una tarea, le envía un mensaje que identifica la operación que debe ejecutar. El objeto B responde llevando a cabo la operación correspondiente y, como resultado, puede modificar su propio estado o comunicarse con otros objetos.
+Un programa con diseño orientado a objetos está formado por un conjunto de objetos que interactúan entre sí mediante el envío de mensajes. Por ejemplo, si tenemos un par de objetos A y B, y además el objeto A necesita que el objeto B realice una tarea, entonces A le envía a B un mensaje que identifica la operación que debe ejecutar. El objeto B responde llevando a cabo la operación correspondiente y, como resultado, puede modificar su propio estado o comunicarse con otros objetos.
 
 Esta forma de organizar un programa permite distinguir los objetos de las estructuras de datos tradicionales. Por ejemplo, una `struct` suele utilizarse para agrupar datos sobre los que actúan otras partes del programa. En cambio, en el diseño orientado a objetos, los datos y las operaciones que los manipulan se reúnen en una misma entidad. Por ello, se dice que un objeto no solo contiene información, sino que también dispone de los métodos necesarios para trabajar con ella.
 
 Cabe señalar que, en C++, tanto una `struct` como una `class` pueden incluir funciones miembro. La diferencia fundamental no consiste en que las `structs` sean incapaces de tener este tipo de funciones, sino en la forma en que se diseñan y organizan los tipos de datos.
 
-La terminología de la programación orientada a objetos está muy influida por Smalltalk. Por este motivo, es habitual encontrar expresiones como *método*, *variable de instancia* y *envío de mensajes*. A continuación, revisaremos algunos de estos conceptos mediante la clase `Tiempo`, definida anteriormente para representar el tipo de dato abstracto que modela el tiempo, y adaptaremos su diseño para incorporar los principios y el vocabulario de la programación orientada a objetos.
+La terminología de la programación orientada a objetos está muy influida por Smalltalk. Por este motivo, es habitual encontrar expresiones como *método*, *variable de instancia*, *atributo* y *envío de mensajes*. A continuación, revisaremos algunos de estos conceptos mediante la clase `Tiempo`, definida anteriormente para representar el tipo de dato abstracto que modela el tiempo, y adaptaremos su diseño para incorporar los principios y el vocabulario de la programación orientada a objetos.
 
 ## Responsabilidades De Los Objetos
 
-En el diseño orientado a objetos, los métodos que ofrece una clase también pueden interpretarse como sus **responsabilidades**. La versión inicial de `Tiempo` contaba con siete métodos: cinco funciones miembro —`establecer`, `incrementar`, `escribir`, `igual` y `menor_que`— y dos constructores. Uno de los constructores recibía las horas, los minutos y los segundos como argumentos; el otro inicializaba el tiempo en cero.
+En el diseño orientado a objetos, los métodos que ofrece una clase también pueden interpretarse como sus **responsabilidades**. La versión inicial de `Tiempo` contaba con siete métodos: cinco funciones miembro (`establecer`, `incrementar`, `escribir`, `igual` y `menor_que`) y dos constructores. Uno de los constructores recibía las horas, los minutos y los segundos como argumentos; el otro inicializaba el tiempo en cero.
 
 Las responsabilidades de un objeto pueden clasificarse en dos categorías: **responsabilidades de acción** y **responsabilidades de conocimiento**.
 
@@ -26,7 +26,7 @@ Por otra parte, un objeto también debe ofrecer mecanismos para informar sobre s
 
 Las funciones que devuelven información acerca de los datos internos de un objeto se denominan **responsabilidades de conocimiento**. En nuestro ejemplo, añadiremos tres funciones para consultar por separado las horas, los minutos y los segundos. También incorporaremos una función que permita solicitar estos tres valores al usuario mediante la entrada estándar.
 
-A continuación presentaremos las versiones modificadas de los archivos de especificación e implementación de la clase `Tiempo`: 
+Acá tenemos la especificación y la implementación de `Tiempo`: 
 
 ```cpp
 //***************************************************************************
@@ -51,9 +51,9 @@ public:
 
     void escribir() const;
 
-    bool igual(/* entrada */ Tiempo otro_tiempo) const;
+    bool es_igual(/* entrada */ Tiempo otro_tiempo) const;
 
-    bool menor_que(/* entrada */ Tiempo otro_tiempo) const;
+    bool es_menor_que(/* entrada */ Tiempo otro_tiempo) const;
 
     Tiempo(
         /* entrada */ int horas_iniciales,
@@ -152,4 +152,3 @@ void Tiempo::leer_tiempo()
 //***************************************************************************
 ```
 
-Después de este ejemplo, podemos introducir tres nuevos términos del vocabulario de la programación orientada a objetos que ayudarán a comprender mejor el funcionamiento y el diseño de las clases en C++.
